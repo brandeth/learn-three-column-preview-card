@@ -1,0 +1,190 @@
+/*
+Bright orange: hsl(31, 77%, 52%)
+Dark cyan: hsl(184, 100%, 22%)
+Very dark cyan: hsl(179, 100%, 13%)
+Transparent white (paragraphs): hsla(0, 0%, 100%, 0.75)
+Very light gray (background, headings, buttons): hsl(0, 0%, 95%)
+*/
+
+/*
+- Family: [Lexend Deca](https://fonts.google.com/specimen/Lexend+Deca)
+- Weights: 400
+
+- Family: [Big Shoulders Display](https://fonts.google.com/specimen/Big+Shoulders+Display)
+- Weights: 700
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca:wght@400&display=swap');
+
+:root {
+  --color-primary: hsl(31, 77%, 52%);
+  --color-secondary: hsl(184, 100%, 22%);
+  --color-tertiary: hsl(179, 100%, 13%);
+  --font-family-primary: 'Lexend Deca', sans-serif;
+  --font-family-secondary: 'Big Shoulders Display', sans-serif;
+  --font-weight-primary: 400;
+  --font-weight-secondary: 700;
+  --transparent-white: hsla(0, 0%, 100%, 0.75);
+  --very-light-gray: hsl(0, 0%, 95%);
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  // add font-family
+  font-family: var(--font-family-primary);
+  background-color: var(--very-light-gray);
+  padding: 1rem;
+}
+
+.ThreeColumnPreviewCard {
+  max-width: 22rem;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  &-card {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  &-link {
+    text-decoration: none;
+    font-weight: var(--font-weight-primary);
+    background-color: var(--very-light-gray);
+    border-radius: 3rem;
+    padding: 0.75rem 1.75rem;
+  }
+
+  &-primary {
+    background-color: var(--color-primary);
+  }
+
+  &-tertiary {
+    background-color: var(--color-tertiary);
+  }
+
+  &-secondary {
+    background-color: var(--color-secondary);
+  }
+
+  &-primary,
+  &-secondary,
+  &-tertiary {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-primary);
+    color: var(--transparent-white);
+  }
+
+  &-title {
+    color: var(--very-light-gray);
+    font-family: var(--font-family-secondary);
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+}
+
+.is-text-primary {
+  color: var(--color-primary);
+}
+
+.is-text-secondary {
+  color: var(--color-secondary);
+}
+
+.is-text-tertiary {
+  color: var(--color-tertiary);
+}
