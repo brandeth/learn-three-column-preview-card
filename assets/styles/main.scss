@@ -227,8 +227,7 @@ h6 {
 }
 
 // Add media queries
-
-@media (max-width: 374px) {
+@media (max-width: 319px) {
   .ThreeColumnPreviewCard {
     &-card {
       padding: 2rem;
@@ -237,11 +236,29 @@ h6 {
       font-size: 0.75rem;
     }
     &-link {
-      padding: 0.5rem 1.5rem;
-      font-size: 0.75rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.5rem;
     }
     &-title {
-      font-size: 1.5rem;
+      font-size: 0.75rem;
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .ThreeColumnPreviewCard {
+    &-card {
+      padding: 2.25rem;
+    }
+    &-description {
+      font-size: 1rem;
+    }
+    &-link {
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+    }
+    &-title {
+      font-size: 2rem;
     }
   }
 }
