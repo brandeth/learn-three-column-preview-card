@@ -20,6 +20,7 @@ Very light gray (background, headings, buttons): hsl(0, 0%, 95%)
   --color-primary: hsl(31, 77%, 52%);
   --color-secondary: hsl(184, 100%, 22%);
   --color-tertiary: hsl(179, 100%, 13%);
+  --font-size: 15px;
   --font-family-primary: 'Lexend Deca', sans-serif;
   --font-family-secondary: 'Big Shoulders Display', sans-serif;
   --font-weight-primary: 400;
@@ -115,20 +116,36 @@ h6 {
   font-family: var(--font-family-primary);
   background-color: var(--very-light-gray);
   padding: 1rem;
+
+  .attribution {
+    font-size: 0.75rem;
+    text-align: center;
+    margin-top: 1rem;
+    a {
+      color: var(--color-secondary);
+      text-decoration: none;
+      transition: 0.3s ease-in-out;
+    }
+
+    a:hover {
+      color: var(--color-primary);
+    }
+  }
 }
 
 .ThreeColumnPreviewCard {
-  max-width: 22rem;
+  max-width: 21rem;
 
   &-container {
     display: flex;
     flex-direction: column;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     overflow: hidden;
+    min-height: 1rem;
   }
 
   &-card {
-    padding: 2.5rem;
+    padding: 2.5rem 3.25rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -141,12 +158,30 @@ h6 {
     align-items: flex-start;
   }
 
+  &-description {
+    line-height: 1.75rem;
+    font-size: var(--font-size);
+  }
+
   &-link {
     text-decoration: none;
     font-weight: var(--font-weight-primary);
     background-color: var(--very-light-gray);
     border-radius: 3rem;
-    padding: 0.75rem 1.75rem;
+    padding: 0.65rem 1.85rem;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    border: 2px solid var(--very-light-gray);
+    font-size: var(--font-size);
+  }
+
+  &-link:hover {
+    background-color: transparent;
+    color: var(--very-light-gray);
+  }
+
+  &-linkContainer {
+    display: flex;
   }
 
   &-primary {
@@ -177,6 +212,8 @@ h6 {
   }
 }
 
+// States
+
 .is-text-primary {
   color: var(--color-primary);
 }
@@ -187,4 +224,50 @@ h6 {
 
 .is-text-tertiary {
   color: var(--color-tertiary);
+}
+
+// Add media queries
+
+@media (max-width: 374px) {
+  .ThreeColumnPreviewCard {
+    &-card {
+      padding: 2rem;
+    }
+    &-description {
+      font-size: 0.75rem;
+    }
+    &-link {
+      padding: 0.5rem 1.5rem;
+      font-size: 0.75rem;
+    }
+    &-title {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  .ThreeColumnPreviewCard {
+    max-width: 57rem;
+
+    &-container {
+      flex-direction: row;
+      min-height: 32rem;
+    }
+
+    &-card {
+      padding: 3rem;
+    }
+
+    &-content {
+      align-items: flex-start;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    &-title {
+      font-size: 2.5rem;
+    }
+  }
 }
